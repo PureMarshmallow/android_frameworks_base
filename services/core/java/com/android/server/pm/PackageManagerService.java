@@ -1980,8 +1980,7 @@ public class PackageManagerService extends IPackageManager.Stub {
                             int dexoptNeeded = DexFile.getDexOptNeeded(lib, null, dexCodeInstructionSet, false);
                             if (dexoptNeeded != DexFile.NO_DEXOPT_NEEDED) {
                                 alreadyDexOpted.add(lib);
-                                mInstaller.dexopt(lib, Process.SYSTEM_UID, dexCodeInstructionSet,
-                                        dexoptNeeded, DEXOPT_PUBLIC /*dexFlags*/);
+                                mInstaller.dexopt(lib, Process.SYSTEM_UID, true, dexCodeInstructionSet, dexoptNeeded, false);
                             }
                         } catch (FileNotFoundException e) {
                             Slog.w(TAG, "Library not found: " + lib);
@@ -2029,8 +2028,8 @@ public class PackageManagerService extends IPackageManager.Stub {
                         try {
                             int dexoptNeeded = DexFile.getDexOptNeeded(path, null, dexCodeInstructionSet, false);
                             if (dexoptNeeded != DexFile.NO_DEXOPT_NEEDED) {
-                                mInstaller.dexopt(path, Process.SYSTEM_UID, dexCodeInstructionSet,
-                                        dexoptNeeded, DEXOPT_PUBLIC /*dexFlags*/);
+                                mInstaller.dexopt(path, Process.SYSTEM_UID, true, dexCodeInstructionSet, dexoptNeeded, false);
+
                             }
                         } catch (FileNotFoundException e) {
                             Slog.w(TAG, "Jar not found: " + path);
@@ -6172,7 +6171,9 @@ public class PackageManagerService extends IPackageManager.Stub {
         synchronized (mInstallLock) {
             mPackageDexOptimizer.performDexOpt(p, null /* instruction sets */,
                     false /* force dex */, false /* defer */, true /* include dependencies */,
-                    false /* boot complete */, false /*useJit*/);
+
+                    false /* boot complete */);
+
         }
     }
 
@@ -6216,7 +6217,9 @@ public class PackageManagerService extends IPackageManager.Stub {
                 final String[] instructionSets = new String[] { targetInstructionSet };
                 int result = mPackageDexOptimizer.performDexOpt(p, instructionSets,
                         false /* forceDex */, false /* defer */, true /* inclDependencies */,
-                        true /* boot complete */, false /*useJit*/);
+
+                        true /* boot complete */);
+
                 return result == PackageDexOptimizer.DEX_OPT_PERFORMED;
             }
         } finally {
@@ -6264,7 +6267,9 @@ public class PackageManagerService extends IPackageManager.Stub {
                     getPrimaryInstructionSet(pkg.applicationInfo) };
             final int res = mPackageDexOptimizer.performDexOpt(pkg, instructionSets,
                     true /*forceDex*/, false /* defer */, true /* inclDependencies */,
-                    true /* boot complete */, false /*useJit*/);
+=
+                    true /* boot complete */);
+=
             if (res != PackageDexOptimizer.DEX_OPT_PERFORMED) {
                 throw new IllegalStateException("Failed to dexopt: " + res);
             }
@@ -7062,7 +7067,9 @@ public class PackageManagerService extends IPackageManager.Stub {
         if ((scanFlags & SCAN_NO_DEX) == 0) {
             int result = mPackageDexOptimizer.performDexOpt(pkg, null /* instruction sets */,
                     forceDex, (scanFlags & SCAN_DEFER_DEX) != 0, false /* inclDependencies */,
-                    (scanFlags & SCAN_BOOTING) == 0, false /*useJit*/);
+=
+                    (scanFlags & SCAN_BOOTING) == 0);
+=
             if (result == PackageDexOptimizer.DEX_OPT_FAILED) {
                 throw new PackageManagerException(INSTALL_FAILED_DEXOPT, "scanPackageLI");
             }
@@ -7139,7 +7146,7 @@ public class PackageManagerService extends IPackageManager.Stub {
                     int result = mPackageDexOptimizer.performDexOpt(clientPkg,
                             null /* instruction sets */, forceDex,
                             (scanFlags & SCAN_DEFER_DEX) != 0, false,
-                            (scanFlags & SCAN_BOOTING) == 0, false /*useJit*/);
+                            (scanFlags & SCAN_BOOTING) == 0);
                     if (result == PackageDexOptimizer.DEX_OPT_FAILED) {
                         throw new PackageManagerException(INSTALL_FAILED_DEXOPT,
                                 "scanPackageLI failed to dexopt clientLibPkgs");
@@ -7746,7 +7753,7 @@ public class PackageManagerService extends IPackageManager.Stub {
 
                         int result = mPackageDexOptimizer.performDexOpt(ps.pkg,
                                 null /* instruction sets */, forceDexOpt, deferDexOpt, true,
-                                bootComplete, false /*useJit*/);
+                                bootComplete);
                         if (result == PackageDexOptimizer.DEX_OPT_FAILED) {
                             ps.primaryCpuAbiString = null;
                             ps.pkg.applicationInfo.primaryCpuAbi = null;
@@ -12347,7 +12354,7 @@ public class PackageManagerService extends IPackageManager.Stub {
             int result = mPackageDexOptimizer
                     .performDexOpt(pkg, null /* instruction sets */, false /* forceDex */,
                             false /* defer */, false /* inclDependencies */,
-                            true /*bootComplete*/, false /*useJit*/);
+                            true /* boot complete */);
             if (result == PackageDexOptimizer.DEX_OPT_FAILED) {
                 res.setError(INSTALL_FAILED_DEXOPT, "Dexopt failed for " + pkg.codePath);
                 return;

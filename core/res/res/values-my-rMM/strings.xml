@@ -221,9 +221,7 @@
     <string name="permgrouplab_contacts" msgid="3657758145679177612">"အဆက်အသွယ်များ"</string>
     <string name="permgroupdesc_contacts" msgid="1437393511338346185">"သင့် အဆက်အသွယ်များအား ဝင်ရောက်သုံးရန်နှင့် ပြင်ဆင်ရန်"</string>
     <string name="permgrouplab_location" msgid="7275582855722310164">"တည်နေရာ"</string>
-    <string name="permgroupdesc_location" msgid="536889867433972794">"သင်၏ တည်နေရာအား ဝင်ရောက်သုံးရန်"</string>
-    <string name="permgrouplab_socialInfo" msgid="5799096623412043791">"သင်၏ ဆိုရှယ် သတင်းအချက်အလက်"</string>
-    <string name="permgroupdesc_socialInfo" msgid="7129842457611643493">"သင်၏ အဆက်အသွယ်များနှင့် ဆိုရှယ်လ် အဆက်အသွယ်များအား၏ သတင်းအချက်အလက်များအား တိုက်ရိုက်အသုံးပြုခွင့် ရယူရန်"</string>
+    <string name="permgroupdesc_location" msgid="1346617465127855033">"ဤစက်ပစ္စည်း၏ တည်နေရာကို ရယူ"</string>
     <string name="permgrouplab_calendar" msgid="5863508437783683902">"ပြက္ခဒိန်"</string>
     <string name="permgroupdesc_calendar" msgid="2116049656685591803">"သင်၏ ပြက္ခဒိန်သို့ ဝင်ရောက်သုံးရန်နှင့် ပြင်ဆင်ရန်"</string>
     <string name="permgrouplab_sms" msgid="228308803364967808">"စာတိုစနစ်"</string>
