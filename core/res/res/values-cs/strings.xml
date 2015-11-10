@@ -223,9 +223,7 @@
     <string name="permgrouplab_contacts" msgid="3657758145679177612">"Kontakty"</string>
     <string name="permgroupdesc_contacts" msgid="1437393511338346185">"přístup k vašim kontaktům a jejich úpravy"</string>
     <string name="permgrouplab_location" msgid="7275582855722310164">"Poloha"</string>
-    <string name="permgroupdesc_location" msgid="536889867433972794">"přístup k poloze"</string>
-    <string name="permgrouplab_socialInfo" msgid="5799096623412043791">"Informace o vašich kontaktech a sociálních sítích"</string>
-    <string name="permgroupdesc_socialInfo" msgid="7129842457611643493">"Přímý přístup k informacím o vašich kontaktech a sociálních propojeních"</string>
+    <string name="permgroupdesc_location" msgid="1346617465127855033">"přístup k poloze tohoto zařízení"</string>
     <string name="permgrouplab_calendar" msgid="5863508437783683902">"Kalendář"</string>
     <string name="permgroupdesc_calendar" msgid="2116049656685591803">"přístup k vašemu kalendáři a jeho úpravy"</string>
     <string name="permgrouplab_sms" msgid="228308803364967808">"SMS"</string>

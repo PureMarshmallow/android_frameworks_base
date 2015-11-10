@@ -221,9 +221,7 @@
     <string name="permgrouplab_contacts" msgid="3657758145679177612">"සම්බන්ධතා"</string>
     <string name="permgroupdesc_contacts" msgid="1437393511338346185">"ඔබේ සම්බන්ධතා ප්‍රවේශ කරන්න සහ වෙනස් කරන්න"</string>
     <string name="permgrouplab_location" msgid="7275582855722310164">"ස්ථානය"</string>
-    <string name="permgroupdesc_location" msgid="536889867433972794">"ඔබගේ ස්ථානය ප්‍රවේශ කිරීම"</string>
-    <string name="permgrouplab_socialInfo" msgid="5799096623412043791">"ඔබගේ සමාජයීය තොරතුරු"</string>
-    <string name="permgroupdesc_socialInfo" msgid="7129842457611643493">"ඔබගේ සම්බන්ධතා සහ සාමාජ සම්බන්ධයන් ගැන තොරතුරු වෙත ඍජු ප්‍රවේශය."</string>
+    <string name="permgroupdesc_location" msgid="1346617465127855033">"මෙම උපාංගයේ ස්ථානයට ප්‍රවේශ කරන්න"</string>
     <string name="permgrouplab_calendar" msgid="5863508437783683902">"දින දර්ශනය"</string>
     <string name="permgroupdesc_calendar" msgid="2116049656685591803">"ඔබේ දින දර්ශනය ප්‍රවේශ කරන්න සහ වෙනස් කරන්න"</string>
     <string name="permgrouplab_sms" msgid="228308803364967808">"කෙටි පණිවිඩ"</string>

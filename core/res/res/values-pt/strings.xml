@@ -219,27 +219,25 @@
     <string name="user_owner_label" msgid="6465364741001216388">"Apps pessoais"</string>
     <string name="managed_profile_label" msgid="6260850669674791528">"Trabalho"</string>
     <string name="permgrouplab_contacts" msgid="3657758145679177612">"Contatos"</string>
-    <string name="permgroupdesc_contacts" msgid="1437393511338346185">"acessar e modificar seus contatos"</string>
+    <string name="permgroupdesc_contacts" msgid="6951499528303668046">"acesse seus contatos"</string>
     <string name="permgrouplab_location" msgid="7275582855722310164">"Local"</string>
     <string name="permgroupdesc_location" msgid="536889867433972794">"acessar seu local"</string>
     <string name="permgrouplab_socialInfo" msgid="5799096623412043791">"Suas informações sociais"</string>
     <string name="permgroupdesc_socialInfo" msgid="7129842457611643493">"Acesso direto às informações de seus contatos e conexões sociais."</string>
     <string name="permgrouplab_calendar" msgid="5863508437783683902">"Agenda"</string>
-    <string name="permgroupdesc_calendar" msgid="2116049656685591803">"acessar e modificar sua agenda"</string>
+    <string name="permgroupdesc_calendar" msgid="3889615280211184106">"acesse sua agenda"</string>
     <string name="permgrouplab_sms" msgid="228308803364967808">"SMS"</string>
-    <string name="permgroupdesc_sms" msgid="3695085582674524761">"acessar e modificar SMS"</string>
-    <string name="permgrouplab_dictionary" msgid="8114410334955871144">"Dicionário do usuário"</string>
-    <string name="permgroupdesc_dictionary" msgid="7586787746354378335">"Ler ou escrever as palavras do dicionário do usuário."</string>
-    <string name="permgrouplab_bookmarks" msgid="1949519673103968229">"Favoritos e histórico"</string>
-    <string name="permgroupdesc_bookmarks" msgid="4169771606257963028">"Acesso direto aos favoritos e histórico do navegador."</string>
+    <string name="permgroupdesc_sms" msgid="4656988620100940350">"enviar e ver mensagens SMS"</string>
+    <string name="permgrouplab_storage" msgid="1971118770546336966">"Armazenamento"</string>
+    <string name="permgroupdesc_storage" msgid="637758554581589203">"acesse fotos, mídia e arquivos do dispositivo"</string>
     <string name="permgrouplab_microphone" msgid="171539900250043464">"Microfone"</string>
     <string name="permgroupdesc_microphone" msgid="1296196977187629181">"usar o microfone do dispositivo"</string>
     <string name="permgrouplab_camera" msgid="4820372495894586615">"Câmera"</string>
     <string name="permgroupdesc_camera" msgid="2429930670410559293">"usar a câmera do dispositivo"</string>
     <string name="permgrouplab_phone" msgid="5229115638567440675">"Telefone"</string>
-    <string name="permgroupdesc_phone" msgid="2016641188146068700">"usar a telefonia do dispositivo"</string>
-    <string name="permgrouplab_sensors" msgid="7416703484233940260">"Sensores"</string>
-    <string name="permgroupdesc_sensors" msgid="2987451839455524494">"acessar sensores e wearables"</string>
+    <string name="permgroupdesc_phone" msgid="6234224354060641055">"faça e gerencie chamadas telefônicas"</string>
+    <string name="permgrouplab_sensors" msgid="416037179223226722">"Sensores corporais"</string>
+    <string name="permgroupdesc_sensors" msgid="7147968539346634043">"acesse dados do sensor sobre seus sinais vitais"</string>
     <string name="capability_title_canRetrieveWindowContent" msgid="3901717936930170320">"Recuperar cont. da janela"</string>
     <string name="capability_desc_canRetrieveWindowContent" msgid="3772225008605310672">"Inspecionar o conteúdo da janela com que você está interagindo."</string>
     <string name="capability_title_canRequestTouchExploration" msgid="3108723364676667320">"Ativar Explorar por toque"</string>
@@ -264,7 +262,11 @@
     <string name="permdesc_receiveSms" msgid="6424387754228766939">"Permite que o app receba e processe mensagens SMS. Isso significa que o app pode monitorar ou excluir mensagens enviadas para o dispositivo sem mostrá-las para você."</string>
     <string name="permlab_receiveMms" msgid="1821317344668257098">"receber mensagens de texto (MMS)"</string>
     <string name="permdesc_receiveMms" msgid="533019437263212260">"Permite que o app receba e processe mensagens MMS. Isso significa que o app pode monitorar ou excluir as mensagens enviadas para o dispositivo sem mostrá-las para você."</string>
-    <string name="permlab_sendSms" msgid="5600830612147671529">"enviar mensagens SMS"</string>
+    <string name="permlab_readCellBroadcasts" msgid="1598328843619646166">"ler mensagens de difusão celular"</string>
+    <string name="permdesc_readCellBroadcasts" msgid="6361972776080458979">"Permite que o app leia mensagens de difusão celular recebidas por seu dispositivo. Alertas de difusão celular são recebidos em alguns locais para avisar você de situações de emergência. Apps maliciosos podem interferir no desempenho ou funcionamento de seu dispositivo quando uma difusão celular de emergência é recebida."</string>
+    <string name="permlab_subscribedFeedsRead" msgid="4756609637053353318">"ler feeds inscritos"</string>
+    <string name="permdesc_subscribedFeedsRead" msgid="5557058907906144505">"Permite que o app obtenha detalhes sobre os feeds sincronizados no momento."</string>
+    <string name="permlab_sendSms" msgid="7544599214260982981">"envie e veja mensagens SMS"</string>
     <string name="permdesc_sendSms" msgid="7094729298204937667">"Permite que o app envie mensagens SMS. Isso pode resultar em cobranças inesperadas. Apps maliciosos podem gerar custos através do envio de mensagens sem sua confirmação."</string>
     <string name="permlab_readSms" msgid="8745086572213270480">"ler suas mensagens de texto (SMS ou MMS)"</string>
     <string name="permdesc_readSms" product="tablet" msgid="2467981548684735522">"Permite que o app leia mensagens SMS armazenadas no tablet ou cartão SIM. Isso permite que o app leia todas as mensagens SMS, independentemente de seu conteúdo ou confidencialidade."</string>

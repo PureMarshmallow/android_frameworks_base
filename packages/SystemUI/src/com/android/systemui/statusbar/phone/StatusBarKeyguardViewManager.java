@@ -542,4 +542,8 @@ public class StatusBarKeyguardViewManager {
     public ViewRootImpl getViewRootImpl() {
         return mPhoneStatusBar.getStatusBarView().getViewRootImpl();
     }
+
+    public ViewRootImpl getViewRootImpl() {
+        return mPhoneStatusBar.getStatusBarView().getViewRootImpl();
+    }
 }

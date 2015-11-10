@@ -14,12 +14,9 @@
  * limitations under the License.
  */
 
-package android.security.net.config;
-
-import java.util.Set;
-import java.security.cert.X509Certificate;
-
-/** @hide */
-public interface CertificateSource {
-    Set<X509Certificate> getCertificates();
-}
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="def_device_name" msgid="6309317409634339402">"%1$s %2$s"</string>
+    <string name="def_device_name_simple" msgid="9037785625140748221">"%1$s"</string>
+    <string name="def_nfc_payment_component" msgid="5861297439873026958"></string>
+</resources>

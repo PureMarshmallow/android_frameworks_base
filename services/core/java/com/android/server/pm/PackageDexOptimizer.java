@@ -76,8 +76,7 @@ final class PackageDexOptimizer {
      * {@link PackageManagerService#mInstallLock}.
      */
     int performDexOpt(PackageParser.Package pkg, String[] instructionSets,
-            boolean forceDex, boolean defer, boolean inclDependencies,
-            boolean bootComplete, boolean useJit) {
+            boolean forceDex, boolean defer, boolean inclDependencies, boolean bootComplete) {
         ArraySet<String> done;
         if (inclDependencies && (pkg.usesLibraries != null || pkg.usesOptionalLibraries != null)) {
             done = new ArraySet<String>();
@@ -92,8 +91,8 @@ final class PackageDexOptimizer {
                 mDexoptWakeLock.acquire();
             }
             try {
-                return performDexOptLI(pkg, instructionSets, forceDex, defer, bootComplete,
-                        useJit, done);
+
+                return performDexOptLI(pkg, instructionSets, forceDex, defer, bootComplete, done);
             } finally {
                 if (useLock) {
                     mDexoptWakeLock.release();
@@ -103,8 +102,7 @@ final class PackageDexOptimizer {
     }
 
     private int performDexOptLI(PackageParser.Package pkg, String[] targetInstructionSets,
-            boolean forceDex, boolean defer, boolean bootComplete, boolean useJit,
-            ArraySet<String> done) {
+            boolean forceDex, boolean defer, boolean bootComplete, ArraySet<String> done) {
         final String[] instructionSets = targetInstructionSets != null ?
                 targetInstructionSets : getAppDexInstructionSets(pkg.applicationInfo);
 
@@ -112,11 +110,11 @@ final class PackageDexOptimizer {
             done.add(pkg.packageName);
             if (pkg.usesLibraries != null) {
                 performDexOptLibsLI(pkg.usesLibraries, instructionSets, forceDex, defer,
-                        bootComplete, useJit, done);
+                        bootComplete, done);
             }
             if (pkg.usesOptionalLibraries != null) {
                 performDexOptLibsLI(pkg.usesOptionalLibraries, instructionSets, forceDex, defer,
-                        bootComplete, useJit, done);
+                        bootComplete, done);
             }
         }
 
@@ -183,8 +181,7 @@ final class PackageDexOptimizer {
                     Log.i(TAG, "Running dexopt (" + dexoptType + ") on: " + path + " pkg="
                             + pkg.applicationInfo.packageName + " isa=" + dexCodeInstructionSet
                             + " vmSafeMode=" + vmSafeMode + " debuggable=" + debuggable
-                            + " oatDir = " + oatDir + " bootComplete=" + bootComplete
-                            + " useJit=" + useJit);
+                            + " oatDir = " + oatDir + " bootComplete=" + bootComplete);
                     final int sharedGid = UserHandle.getSharedAppGid(pkg.applicationInfo.uid);
                     final int dexFlags =
                             (!pkg.isForwardLocked() ? DEXOPT_PUBLIC : 0)
@@ -193,7 +190,8 @@ final class PackageDexOptimizer {
                             | (bootComplete ? DEXOPT_BOOTCOMPLETE : 0)
                             | (useJit ? DEXOPT_USEJIT : 0);
                     final int ret = mPackageManagerService.mInstaller.dexopt(path, sharedGid,
-                            pkg.packageName, dexCodeInstructionSet, dexoptNeeded, oatDir, dexFlags);
+                            !pkg.isForwardLocked(), pkg.packageName, dexCodeInstructionSet,
+                            dexoptNeeded, vmSafeMode, debuggable, oatDir, bootComplete);
 
                     // Dex2oat might fail due to compiler / verifier errors. We soldier on
                     // regardless, and attempt to interpret the app as a safety net.
@@ -250,13 +248,13 @@ final class PackageDexOptimizer {
     }
 
     private void performDexOptLibsLI(ArrayList<String> libs, String[] instructionSets,
-            boolean forceDex, boolean defer, boolean bootComplete, boolean useJit,
-            ArraySet<String> done) {
+            boolean forceDex, boolean defer, boolean bootComplete, ArraySet<String> done) {
         for (String libName : libs) {
             PackageParser.Package libPkg = mPackageManagerService.findSharedNonSystemLibrary(
                     libName);
             if (libPkg != null && !done.contains(libName)) {
-                performDexOptLI(libPkg, instructionSets, forceDex, defer, bootComplete, useJit, done);
+
+                performDexOptLI(libPkg, instructionSets, forceDex, defer, bootComplete, done);
             }
         }
     }
